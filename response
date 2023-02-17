@@ -1,0 +1,26 @@
+const http=require('http');
+const server=http.createServer((res,rej)=>{
+  console.log(res.url,res.headers,res.method) ; 
+  
+  rej.setHeader('content-type','text/html');
+  rej.write('<html>');
+  rej.write('<head><title>this is node.js</title></head>');
+  if(res.url=="/home"){
+  rej.write(`<body><h1>'Welcome Home'</h1></body>`);
+  }
+  else if(res.url=="/about"){
+    rej.write(`<body><h1>'Welcome to about us page'</h1></body>`);    
+  }
+  else if(res.url=="/node"){
+    rej.write(`<body><h1>'Welcome to my node js project'</h1></body>`);
+  }
+  else{
+    rej.write(`<body><h1>'Welcome to my Node Js project 1'</h1></body>`);
+  }
+  rej.write('</html>');
+  rej.end();
+  console.log(w);
+  process.exit();
+
+});
+server.listen(4000);
