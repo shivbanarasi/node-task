@@ -1,5 +1,7 @@
 const http=require('http');
-const server=http.createServer((res,rej)=>{
-  console.log('shiv') ; 
-});
+
+const route=require('./route')
+
+const server=http.createServer(route)
+
 server.listen(4000);
